@@ -1,0 +1,312 @@
+/* public/assets/css/dashboard_styles.css */
+body {
+    font-family: 'Inter', sans-serif; /* Assuming Inter font from previous examples */
+    background-color: #f8f9fa; /* Light gray background for the whole page */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    color: #333;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff; /* White sidebar */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.sidebar-logo {
+    height: 40px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.sidebar-university-name {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #003A70; /* UNPAR Blue */
+    line-height: 1.2;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #495057; /* Darker gray for text */
+    border-radius: 6px;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav li a .nav-icon {
+    margin-right: 12px;
+    width: 20px; /* For icon alignment */
+    text-align: center;
+    color: #6c757d; /* Icon color */
+}
+
+.sidebar-nav li a:hover {
+    background-color: #e9f3ff; /* Light blue hover */
+    color: #003A70;
+}
+
+.sidebar-nav li a.active {
+    background-color: #003A70; /* UNPAR Blue for active */
+    color: #ffffff;
+    font-weight: 500;
+}
+.sidebar-nav li a.active .nav-icon {
+    color: #ffffff;
+}
+
+.sidebar-nav li.nav-logout {
+    margin-top: auto; /* Pushes logout to the bottom if sidebar is flex column */
+}
+
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #f8f9fa; /* Main content background */
+    overflow-y: auto;
+}
+
+.page-header {
+    font-size: 1.75em;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 30px;
+}
+
+/* Stepper */
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-basis: 0; /* Distribute space evenly */
+    flex-grow: 1; /* Distribute space evenly */
+    position: relative;
+}
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 12px; /* Align with the circle's center */
+    left: calc(50% + 20px); /* Start after the circle and some space */
+    width: calc(100% - 40px); /* Width to the next step's circle */
+    height: 2px;
+    background-color: #e0e0e0; /* Line color */
+    z-index: 1;
+}
+
+
+.step-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #e0e0e0; /* Default incomplete step */
+    border: 2px solid #e0e0e0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    color: #ffffff;
+    z-index: 2; /* Above the line */
+    position: relative;
+}
+
+.step.active .step-indicator {
+    background-color: #003A70; /* UNPAR Blue for active step */
+    border-color: #003A70;
+}
+.step.completed .step-indicator {
+    background-color: #28a745; /* Green for completed step */
+    border-color: #28a745;
+}
+
+
+.step-label {
+    font-size: 0.9em;
+    color: #495057;
+    font-weight: 500;
+}
+
+.step-date {
+    font-size: 0.75em;
+    color: #6c757d;
+}
+
+.active .step-label {
+    color: #003A70;
+}
+
+/* Content Card (for Data Diri Peserta section) */
+.content-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.section-title {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #003A70; /* UNPAR Blue */
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px; /* Width of the underline */
+    height: 3px;
+    background-color: #003A70; /* UNPAR Blue */
+}
+
+
+/* Photo Upload Area */
+.photo-upload-section {
+    margin-top: 25px;
+}
+
+.photo-upload-title {
+    font-size: 1em;
+    font-weight: 500;
+    color: #343a40;
+    margin-bottom: 8px;
+}
+.photo-upload-title span {
+    color: red; /* Asterisk color */
+}
+
+.photo-upload-instructions {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.dropzone {
+    border: 2px dashed #0056b3; /* Dashed blue border */
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f0f6ff; /* Very light blue background */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dropzone:hover {
+    background-color: #e0ecff;
+}
+
+.dropzone-icon img {
+    width: 50px; /* Adjust as needed */
+    height: 50px;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.dropzone-text {
+    font-size: 1em;
+    color: #003A70;
+    margin-bottom: 5px;
+}
+.dropzone-text .browse-link {
+    color: #003A70;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.dropzone-supported-formats {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+/* Placeholder for icons - replace with actual icons or font icons */
+.nav-icon::before {
+    font-family: "Font Awesome 5 Free"; /* Example, if using Font Awesome */
+    font-weight: 900;
+    /* content: "\f007"; Default icon */
+}
+
+/* Specific icons (using unicode for simplicity, replace with proper icons) */
+.icon-pendaftaran::before { content: "📝"; } /* Pencil / Form */
+.icon-profil::before { content: "👤"; }      /* User */
+.icon-ubah-foto::before { content: "🖼️"; }  /* Picture */
+.icon-jadwal::before { content: "📅"; }     /* Calendar */
+.icon-pengaturan::before { content: "⚙️"; } /* Cog */
+.icon-logout::before { content: "🚪"; }     /* Door / Logout */
+.icon-upload::before { content: "☁️"; }     /* Cloud upload */
+
+/* Responsive adjustments if necessary */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width on small screens, or implement a toggle */
+        min-height: auto;
+        /* For a real mobile view, you'd likely hide the sidebar or make it a drawer */
+    }
+    .main-content {
+        padding: 15px;
+    }
+    .stepper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .step {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+    .step:not(:last-child)::after {
+        display: none; /* Hide connector lines on stacked mobile view */
+    }
+    .step-indicator {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    .page-header {
+        font-size: 1.4em;
+    }
+}
